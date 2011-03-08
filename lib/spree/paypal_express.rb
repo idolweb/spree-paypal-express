@@ -208,10 +208,10 @@ module Spree::PaypalExpress
         :qty         => item.quantity,
         :amount      => price,
         :tax         => tax,
-        :weight      => item.variant.weight,
-        :height      => item.variant.height,
-        :width       => item.variant.width,
-        :depth       => item.variant.weight }
+        :weight      => item.variant.weight.to_i,
+        :height      => item.variant.height.to_i,
+        :width       => item.variant.width.to_i,
+        :depth       => item.variant.weight.to_i }
     end
 
     credits = order.credits.map do |credit|

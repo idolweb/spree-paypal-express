@@ -65,7 +65,7 @@ class PaypalAccount < ActiveRecord::Base
   def can_credit?(payment)
     !find_capture(payment).nil?
   end
-
+  
   # fix for Payment#payment_profiles_supported?
   def payment_gateway
     false
