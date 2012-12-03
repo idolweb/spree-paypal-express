@@ -249,7 +249,7 @@ module Spree::PaypalExpress
       #use real totals are we are paying via paypal (spree checkout almost complete)
       opts[:subtotal] = ((order.item_total + order.credits.total)*100).round.to_i
       opts[:tax]      = (order.tax_total*100).round.to_i
-      opts[:shipping] = (order.ship_total*100).round.to_i
+      opts[:shipping] = (order.ship_total*100 + order.gift_total*100).round.to_i
       opts[:handling] = 0
       opts[:money] = (order.total*100).round.to_i
     end
